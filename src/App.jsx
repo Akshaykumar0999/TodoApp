@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import './App.css'
-import {v4 as uuid} from 'uuid'
+import {stringify, v4 as uuid} from 'uuid'
 import Task from './components/Task'
 import DayTab from './components/DayTab'
 
@@ -28,6 +28,11 @@ const categoriesList = [
 ]
 
 const daysList = [
+  {
+    id: 'SUNDAY',
+    name: "Sunday",
+    emoji: '/sunday.png'
+  },
   {
     id: 'MONDAY',
     name: "Monday",
@@ -58,11 +63,6 @@ const daysList = [
     name: "Saturday",
     emoji: '/saturday.png'
   },
-  {
-    id: 'SUNDAY',
-    name: "Sunday",
-    emoji: '/sunday.png'
-  },
 ]
 
 const getLocalStorae = () => {
@@ -75,19 +75,19 @@ const getLocalStorae = () => {
 }
 
 function App() {
+  const current = new Date();
+  const date = current.toLocaleDateString();
+  const daysOfWeeks = ['SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY']
+  const currentDay = daysOfWeeks[current.getDay()]
   const [todosList, setTodosList] = useState(getLocalStorae())
   const [category, setCategory] = useState(categoriesList[0].name)
-  const [actTab, setActTab] = useState(daysList[0].id)
+  const [actTab, setActTab] = useState(currentDay)
   const [day, setDay] = useState(daysList[0].id)
   const [subTask, setSubTask] = useState('')
   const [subTasksList, setSubTasksList] = useState([])
   const [task, setTask] =useState('')   
-  const [description, setdescription] =useState('')   
-  const current = new Date();
-  const date = `${current.getDate()}/${current.getMonth()+1}/${current.getFullYear()}`;
+  const [description, setdescription] =useState('')  
 
-  
-  
   const onSubmitTask = (e) => {
     e.preventDefault()
     const newTask = {
@@ -147,20 +147,20 @@ function App() {
             <form className='task-form' onSubmit={onSubmitTask} >
               <input className='input-cards' type='text' value={task} placeholder='Task Details' onChange={(e) => setTask(e.target.value)} />
               <select className='input-cards' onChange={(e) => setDay(e.target.value)} >
+                <option value='SUNDAY'>Sunday</option>
                 <option value='MONDAY'>Monday</option>
                 <option value='TUESDAY'>Tuesday</option>
                 <option value='WEDNESDAY'>Wednesday</option>
                 <option value='THURSDAY'>Thursday</option>
                 <option value='FRIDAY'>Friday</option>
                 <option value='SATURDAY'>Saturday</option>
-                <option value='SUNDAY'>Sunday</option>
               </select>
               <select className='input-cards' value={category} onChange={(e) => setCategory(e.target.value)}>
                   {categoriesList.map(eachCat => <option key={eachCat.id} value={eachCat.name} >{eachCat.name}</option>)}
               </select>
               <div className='subtask-input-card'>
                 <input className='input-sub-cards' type='text' value={subTask} placeholder='Sub Tasks Details' onChange={(e) => setSubTask(e.target.value)} />
-                <button type='button' className='subtask-add-button' onClick={onAddSubTask}>Add</button>
+                <button type='button' className='subtask-add-button' onClick={onAddSubTask}>➕</button>
               </div>
               <textarea className='textarea-cards' style={{paddingTop: '10px'}} value={description}  type='text' placeholder='Task Description (Optional)' onChange={(e) => setdescription(e.target.value)} />
               <button type='submit' className='add-button'><img src='/sticky-notes.png' className='add-img-styles' />Add Task</button>
@@ -177,7 +177,7 @@ function App() {
           <ul className='tasks-list-main-ul-card'>
             {
               updatedFilteredlist.map((eachTask) => (
-                <Task key={eachTask.id} details={eachTask} handleDelete={handleDelete} handlescroll = {handlescroll} />
+                <Task key={eachTask.id} details={eachTask} handleDelete={handleDelete} handlescroll ={handlescroll} />
               ))
             }
           </ul>

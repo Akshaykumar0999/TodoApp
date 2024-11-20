@@ -1,5 +1,6 @@
 import React from "react";
 import './index.css';
+import { TbHttpDelete } from "react-icons/tb";
 import AnimatedGif from "../AnimatedGif";
 const Task = ({details, handleDelete ,handlescroll}) => {
     const onClickDelete = () => {
@@ -9,6 +10,7 @@ const Task = ({details, handleDelete ,handlescroll}) => {
         handlescroll(details.id)
     }
     const {task, category, scrolled, subTasksList} = details
+    
     return(
         <li className="task-item-card">
             <div className="task-item-first-card">
@@ -29,7 +31,7 @@ const Task = ({details, handleDelete ,handlescroll}) => {
                     </div>
                     <ul className="subtasks-ul-card">
                         {
-                           subTasksList.map(subTask => <li key={subTask} className="list-sub-task">👉  {subTask}</li>) 
+                           subTasksList.map(subTask => <li key={subTask} className="list-sub-task"><p style={{width:'92%'}}>👉 {subTask}</p><TbHttpDelete className="remove-sub-task" /> </li>) 
                         }
                     </ul>
                 </div>
