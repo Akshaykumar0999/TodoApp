@@ -1,0 +1,315 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: 'poppins', sans-serif;
+  box-sizing: border-box;
+}
+
+.App-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #c9daf4;
+}
+.task-form-card {
+  height: 100%;
+  width: 35%;
+  background-image: linear-gradient(to bottom right, #fcb7f4, #faa6f8, #f76bc1, #e48bec, #d474dd);
+  border-top-right-radius: 35px;
+  border-bottom-right-radius: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.task-form {
+  width: 95%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.tasks-inputs-main-card {
+  width: 100%;
+  /* height: 80%; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.input-cards {
+  width: 90%;
+  height: 40px;
+  border-radius: 5px;
+  padding-left: 5px;
+  margin-top: 20px;
+  padding-top: 0px;
+  border: none;
+  cursor: pointer;
+  background-color: #fafafa;
+}
+.textarea-cards {
+  width: 90%;
+  height: 80px;
+  border-radius: 5px;
+  padding-left: 5px;
+  margin-top: 20px;
+  border: none;
+  cursor: pointer;
+  background-color: #fafafa;
+}
+.add-button {
+  height: 30px;
+  border-radius: 5px;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 8px;
+  background-color: #5ec07d;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+}
+.subtask-add-button {
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #5ec07d;
+  color: #ffff;
+}
+.time-date-card {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px;
+}
+.date-time-string {
+  font-size: 18px;
+  font-weight: bold;
+  color: #75a1e2;
+  background-color: transparent;
+  padding: 5px;
+  border-radius: 5px;
+}
+.tasks-inputs-main-card p {
+  text-transform: uppercase;
+  display: block;
+}
+.text1 {
+  font-size: 40px;
+  font-weight: bold;
+  color: #ffffff;
+  background: transparent;
+  letter-spacing: 3px;
+}
+.text2 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff;
+  letter-spacing: 3px;
+  position: relative;
+  animation: text 2s 1;
+}
+.text2-card {
+  font-size: 17px;
+  font-weight: bold;
+  color: #ffffff;
+  letter-spacing: 3px;
+  position: relative;
+  animation: text 2s 1;
+}
+
+@keyframes text {
+ 0% {
+  color: transparent;
+  margin-top: -40px;
+ }
+ 30% {
+  letter-spacing: 2px;
+  margin-top: -40px;
+ }
+} 
+
+.add-img-styles {
+  height: 25px;
+  width: 25px;
+  margin: 8px;
+}
+.tasks-list-main-ul-card {
+  width: 90%;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 0px;
+  margin-top: 20px;
+}
+.tasks-list-items-main-card {
+  width: 65%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px;
+}
+.days-ul-element {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+.subtask-input-card {
+  width: 90%;
+  height: 40px;
+  border-radius: 5px;
+  margin-top: 20px;
+  border: none;
+  cursor: pointer;
+  background-color: #fafafa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.input-sub-cards {
+  width: 90%;
+  height: 40px;
+  border-radius: 5px;
+  padding-left: 5px;
+  padding-top: 0px;
+  border: none;
+  cursor: pointer;
+  background-color: #fafafa;
+}
+
+@media screen and (max-width: 400px) {
+  .task-form-card {
+    height: 50%;
+  }
+  .text1 {
+    font-size: 15px;
+  }
+  .text2 {
+    font-size: 8px;
+  }
+  .input-cards {
+    height: 20px;
+    margin-top: 4px;
+  }
+  .subtask-input-card {
+    height: 20px;
+    margin-top: 4px;
+  }
+  .date-time-string {
+    font-size: 8px;
+    margin-bottom: 10px;
+  }
+  .subtask-add-button {
+    height: 100%;
+    width: 10%;
+    font-size: 12px;
+  }
+  .time-date-card {
+    padding: 5px 0px 5px 5px;
+  }
+  .add-button {
+    margin-top: 8px;
+    margin-bottom: 10px;
+  }
+  .tasks-list-items-main-card {
+    margin-top: 40px;
+  }
+  .text2-card {
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+  .tasks-list-items-main-card {
+    padding: 5px;
+  }
+
+}
+
+@media screen and (max-width: 768px) {
+  .App-container {
+    flex-direction: column;
+  }
+  .task-form-card {
+    width: 100%;
+    height: 40%;
+    border-top-right-radius: 0px;
+    border-bottom-left-radius: 35px;
+  }
+  .text1 {
+    font-size: 25px;
+  }
+  .text2 {
+    font-size: 17px;
+  }
+  .task-form {
+    width: 95%;
+    height: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .input-cards {
+    width: 49%;
+    height: 30px;
+    margin-top: 8px;
+  }
+  .subtask-input-card {
+    width: 49%;
+    height: 30px;
+    margin-top: 8px;
+  }
+  .input-sub-cards {
+    height: 100%;
+  }
+  .date-time-string {
+    font-size: 13px;
+  }
+  .subtask-add-button {
+    height: 100%;
+  }
+  .textarea-cards {
+    display: none;
+  }
+  .add-button {
+    margin-top: 8px;
+    margin-bottom: 20px;
+    height: 25px;
+    width: auto;
+    font-size: 15px;
+    padding: 5px 5px 5px 0px;
+  }
+  .tasks-list-items-main-card {
+    margin-top: 20px;
+    width: 100%;
+  }
+  .text2-card {
+    font-size: 14px;
+    letter-spacing: 1px;
+  }
+  .add-img-styles {
+    height: 15px;
+    width: 15px;
+  }
+  @keyframes text {
+    0% {
+     color: transparent;
+     margin-top: -20px;
+    }
+    30% {
+     letter-spacing: 2px;
+     margin-top: -20px;
+    }
+   } 
+}

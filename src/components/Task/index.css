@@ -1,0 +1,141 @@
+.task-item-card {
+    width: 100%;
+    height: auto;
+    background-color: #ffffff;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2px 8px;
+    margin: 0px 0px 10px 0px;
+}
+.task-item-first-card {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0px;
+}
+.delete-button {
+    height: 30px;
+    width: 30px;
+    background-color: rgb(248, 139, 139);
+    color: rgb(255, 132, 132);
+}
+
+.delete-gif {
+    height: 30px;
+    width: 30px;
+}
+.task-text {
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(242, 126, 203);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.action-card {
+    width: auto;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.checkbox {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+}
+.delete-button {
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+}
+.subtasks-ul-card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-left: 0px;
+    padding: 0px 5px;
+}
+.list-sub-task {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 3px 5px;
+    margin-bottom: 5px;
+    background-color: aliceblue;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    color: #303030;
+    font-size: 14px;
+    font-weight: 600;
+}
+.span-ele {
+    font-size: 15px;
+    color: blue;
+}
+.estimated-time {
+    font-size: 15px;
+    color: #2e2e2e;
+    font-weight: bold;
+    margin-left: 8px;
+}
+@media screen and (max-width: 768px) {
+    .delete-gif {
+        height: 20px;
+        width: 20px;
+    }
+    .list-sub-task {
+        font-size: 12px;
+        font-weight: 500;
+    }
+    .checkbox {
+        height: 14px;
+        width: 14px;
+    }
+    .delete-button {
+        height: 20px;
+        width: 20px;
+    }
+    .span-ele {
+        font-size: 10px;
+    }
+    .estimated-time {
+        font-size: 10px;
+        margin-left: 3px;
+    }
+}
+@media screen and (max-width: 550px) {
+    .delete-gif {
+        height: 15px;
+        width: 15px;
+    }
+    .list-sub-task {
+        font-size: 12px;
+        font-weight: 500;
+    }
+    .checkbox {
+        height: 12px;
+        width: 12px;
+    }
+    .span-ele {
+        font-size: 12px;
+    }
+    .estimated-time {
+        font-size: 12px;
+        margin-left: 5px;
+    }
+}
