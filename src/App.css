@@ -24,6 +24,7 @@
   justify-content: flex-start;
   align-items: center;
 }
+
 .task-form {
   width: 95%;
   height: auto;
@@ -39,6 +40,32 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.timer-pomodaro {
+  font-weight: bold;
+  padding: 3px 5px;
+  border-radius: 5px;
+  color: #4b8beb;
+  background-color: #ffffff;
+}
+.timers-card {
+  font-size: 80px;
+  font-weight: bold;
+  color: #414040;
+}
+.timer-gif {
+  height: 30px;
+  width: 30px;
+}
+.timer-gif-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3px 5px;
+  border-radius: 5px;
+  color: #4b8beb;
+  margin-right: 10px;
+  background-color: #ffffff;
 }
 .input-cards {
   width: 90%;
@@ -73,6 +100,7 @@
   color: #ffffff;
   border: 1px solid #ffffff;
 }
+
 .subtask-add-button {
   border-radius: 5px;
   display: flex;

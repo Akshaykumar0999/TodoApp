@@ -1,8 +1,13 @@
 import React, {useEffect, useState} from 'react'
 import './App.css'
-import {stringify, v4 as uuid} from 'uuid'
+import { v4 as uuid} from 'uuid'
 import Task from './components/Task'
 import DayTab from './components/DayTab'
+import Timer from './components/Timer'
+
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const categoriesList = [
   {
@@ -86,7 +91,14 @@ function App() {
   const [subTask, setSubTask] = useState('')
   const [subTasksList, setSubTasksList] = useState([])
   const [task, setTask] =useState('')   
-  const [description, setdescription] =useState('')  
+  const [description, setdescription] =useState('')
+
+  const [hrs, setHrs] = useState(null)
+  const [mnts, setMnts] = useState(null)
+  const [showTimer, setShowTimer] = useState(false);
+  const [show, setShow] = useState(false);
+  const handleClose = () => {setShow(false)};
+  const handleShow = () => setShow(true);
 
   const onSubmitTask = (e) => {
     e.preventDefault()
@@ -133,13 +145,17 @@ function App() {
   }, [todosList])
 
   const updatedFilteredlist = todosList.filter(each => each.day === actTab)
-  
+
+
   return (
       <div className='App-container'>
         <div className='task-form-card'>
           <div className='time-date-card'>
             <p className='date-time-string'>📆 <span style={{color: '#fff'}}>{date}</span></p>
-            {/* <p className='date-time-string'>⏲️ <span style={{color: '#fff', fontSize: '20px'}}>{time.toLocaleTimeString()}</span></p> */}
+            {/* <p className='date-time-string'> <span style={{color: '#fff', fontSize: '20px'}}>{time.toLocaleTimeString()}</span></p> */}
+            <div className='timer-gif-card' onClick={handleShow}>           
+              <img src='/timer.gif' alt='timer' className='timer-gif' /><button className='timer-pomodaro'>Timer</button>
+            </div>
           </div>
           <div className='tasks-inputs-main-card'>
             <p className='text1'>Todos Tasks</p>
@@ -182,6 +198,37 @@ function App() {
             }
           </ul>
         </div>
+        <Modal show={show} centered onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Pomodaro Timer ⏲️</Modal.Title>
+          </Modal.Header>
+          {
+            showTimer ? 
+            <Modal.Body style={{display: 'flex', flexDirection:'column', justifyContent: 'center', alignItems: 'center'}}>
+              <p className='timers-card'><Timer intialHours={hrs} intialMinutes={mnts}  /></p>
+              <div style={{width:'100%', display: 'flex', justifyContent:'center', alignItems: 'center'}}>
+                <Button variant="white" style={{ border: '1px solid #a15ef2', alignSelf: 'flex-start', margin: '5px'}} onClick={() => setShowTimer(false)}>
+                  🔙
+                </Button>
+                <Button variant="white" style={{color: '#a15ef2', border: '2px solid #4e92ce', margin: '5px'}} >
+                  ⏯️
+                </Button>
+              </div>
+            </Modal.Body> :
+            <Modal.Body>
+              <div style={{width: '100%', display: 'flex', justifyContent: 'space-around', alignItems: 'center'}}>
+                <input type='number' style={{width:'49%', padding: '3px 5px', borderRadius: '5px'}} placeholder='Hours' onChange={(e) => setHrs(e.target.value)} />
+                <input type='number' style={{width:'49%', padding: '3px 5px', borderRadius: '5px'}} placeholder="Minutes" onChange={(e) => setMnts(e.target.value)} />
+              </div>
+            </Modal.Body>
+          
+          }
+          <Modal.Footer>
+            <Button variant="primary" onClick={() => {setShowTimer(true)}}>
+              Show Timer
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </div>
   )
 }
