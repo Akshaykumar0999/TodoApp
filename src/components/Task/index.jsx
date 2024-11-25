@@ -31,7 +31,7 @@ const Task = ({details, handleDelete ,handlescroll}) => {
                     </div>
                     <ul className="subtasks-ul-card">
                         {
-                           subTasksList.map(subTask => <li key={subTask} className="list-sub-task"><p style={{width:'92%'}}>👉 {subTask}</p><TbHttpDelete className="remove-sub-task" /> </li>) 
+                           subTasksList.map(subTask => <li key={subTask} className="list-sub-task"><p style={{width:'92%', margin: '0px'}}>👉 {subTask}</p><TbHttpDelete className="remove-sub-task" /> </li>) 
                         }
                     </ul>
                 </div>

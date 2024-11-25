@@ -101,6 +101,7 @@
     color: #2e2e2e;
     font-weight: bold;
     margin-left: 8px;
+    margin: 0px;
 }
 @media screen and (max-width: 768px) {
     .delete-gif {

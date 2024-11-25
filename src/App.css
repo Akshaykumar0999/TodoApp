@@ -187,6 +187,7 @@
   justify-content: flex-start;
   align-items: center;
   padding: 20px;
+  overflow: auto;
 }
 .days-ul-element {
   width: 100%;
