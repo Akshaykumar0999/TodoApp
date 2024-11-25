@@ -33,9 +33,10 @@
     font-weight: bold;
     color: rgb(242, 126, 203);
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     height: 100%;
+    width: 80%;
 }
 .action-card {
     width: auto;

@@ -1,15 +1,18 @@
 import { useEffect, useState } from 'react'
 import './index.css'
-const Timer = ({intialHours, intialMinutes}) => {
+const Timer = ({intialHours, intialMinutes, isPassed}) => {
     const initialSeconds = intialHours * 3600 + intialMinutes * 60 + 0
     const [time, setTime] = useState(initialSeconds)
     
     useEffect(() => {
-        if (time <= 0) return alert('⌛ Time Up 🙇‍♂️');
-
-        const timerId = setInterval(() => {
+        let timerId = setInterval(() => {
             setTime((prevTime) => prevTime -1)
         }, 1000)
+        if (time <= 0) {
+            alert('⌛ Time Up 🙇‍♂️');
+        } if (isPassed) {
+            clearInterval(timerId)
+        }
         return () => clearInterval(timerId);
     }, [time])
 

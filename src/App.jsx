@@ -93,6 +93,8 @@ function App() {
   const [task, setTask] =useState('')   
   const [description, setdescription] =useState('')
 
+  const [isPassed, setIsPassed] = useState(false)
+
   const [hrs, setHrs] = useState(null)
   const [mnts, setMnts] = useState(null)
   const [showTimer, setShowTimer] = useState(false);
@@ -205,12 +207,12 @@ function App() {
           {
             showTimer ? 
             <Modal.Body style={{display: 'flex', flexDirection:'column', justifyContent: 'center', alignItems: 'center'}}>
-              <p className='timers-card'><Timer intialHours={hrs} intialMinutes={mnts}  /></p>
+              <p className='timers-card'><Timer intialHours={hrs} intialMinutes={mnts} isPassed={isPassed}  /></p>
               <div style={{width:'100%', display: 'flex', justifyContent:'center', alignItems: 'center'}}>
                 <Button variant="white" style={{ border: '1px solid #a15ef2', alignSelf: 'flex-start', margin: '5px'}} onClick={() => setShowTimer(false)}>
                   🔙
                 </Button>
-                <Button variant="white" style={{color: '#a15ef2', border: '2px solid #4e92ce', margin: '5px'}} >
+                <Button variant="white" style={{color: '#a15ef2', border: '2px solid #4e92ce', margin: '5px'}} onClick={() => setIsPassed((prev) => !prev)} >
                   ⏯️
                 </Button>
               </div>

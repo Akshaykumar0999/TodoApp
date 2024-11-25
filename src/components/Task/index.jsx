@@ -14,7 +14,7 @@ const Task = ({details, handleDelete ,handlescroll}) => {
     return(
         <li className="task-item-card">
             <div className="task-item-first-card">
-                <div className="task-text"><input type="checkbox" className="checkbox" /><p>{task}</p></div>
+                <div className="task-text"><input type="checkbox" className="checkbox" /><p style={{margin: '0px'}}>{task}</p></div>
                 <div className="action-card">
                     <button className="delete-button" onClick={onClickScroll}><AnimatedGif src='/scroll-down.gif' alt='Delete'  /></button>
                     <button className="delete-button" onClick={onClickDelete}><AnimatedGif src='/trash-bin.gif' alt='Delete'  /></button>
